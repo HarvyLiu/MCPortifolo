@@ -1,0 +1,31 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // Simple intro animation
+    const introText = document.getElementById("intro");
+    introText.style.opacity = "0";
+    setTimeout(() => { introText.style.opacity = "1"; }, 500);
+
+    // Dynamic project gallery
+    const projects = [
+        { title: "Project A", img: "images/proj1.jpg", desc: "Awesome project A" },
+        { title: "Project B", img: "images/proj2.jpg", desc: "Great project B" }
+    ];
+    
+    const gallery = document.querySelector(".project-gallery");
+    projects.forEach(proj => {
+        let div = document.createElement("div");
+        div.className = "project-item";
+        div.innerHTML = `<img src="${proj.img}" alt="${proj.title}">
+                         <h3>${proj.title}</h3><p>${proj.desc}</p>`;
+        gallery.appendChild(div);
+    });
+
+    // Skills showcase interaction
+    const skills = ["JavaScript", "CSS", "HTML", "Web Animations"];
+    const skillsContainer = document.querySelector(".skills-container");
+    skills.forEach(skill => {
+        let skillDiv = document.createElement("div");
+        skillDiv.className = "skill-item";
+        skillDiv.innerText = skill;
+        skillsContainer.appendChild(skillDiv);
+    });
+});
